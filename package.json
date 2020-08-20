@@ -1,5 +1,5 @@
 {
-  "name": "web-rbac-management",
+  "name": "web-rbac-manage",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

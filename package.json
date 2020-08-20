@@ -31,7 +31,7 @@
     "uniqid": "^5.2.0"
   },
   "scripts": {
-    "start": "set REACT_APP_ENVIRONMENT=localhost&& react-scripts start",
+    "start": "SET REACT_APP_ENVIRONMENT=localhost&& react-scripts start",
     "build": "react-scripts build",
     "test": "react-script test",
     "eject": "react-scripts eject"

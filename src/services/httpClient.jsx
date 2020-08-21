@@ -17,9 +17,6 @@ axios.interceptors.request.use(
     config.timeout = 1000;
     config.baseURL = Configs.config.web_config.core_base_url;
     return config;
-  },
-  (error) => {
-    return Promise.reject(error);
   }
 );
 
@@ -53,7 +50,7 @@ axios.interceptors.response.use(
       if (String(error).includes("timeout of 1000ms") === true) {
         return { status: 0, message: "The Server connection time out." };
       } else {
-        return { status: 0, message: e };
+        return { status: 0, message: `${e}` };
       }
     }
     return Promise.reject(error);

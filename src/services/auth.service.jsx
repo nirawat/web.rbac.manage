@@ -8,7 +8,6 @@ import {
 
 export const SignInService = async (userInfo) => {
   let resp = await httpClient.post("Auth/SignIn", userInfo);
-  console.log(resp)
   if (!!resp && resp.status === 200 && !!resp.token) {
     localStorage.setItem(
       Configs.config.web_config.auth_local_storage,
@@ -40,7 +39,6 @@ export const SignOutService = async (dispatch, userInfo) => {
 export const ChangePasswordService = async (dispatch, info) => {
   GlobalLoadingEvent(dispatch, true);
   let resp = await httpClient.post("Auth/ChangePassword", info);
-  console.log(resp);
   GlobalLoadingEvent(dispatch, false);
   GlobalMessageShow(dispatch, resp);
   return resp;

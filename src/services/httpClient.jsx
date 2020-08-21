@@ -50,7 +50,7 @@ axios.interceptors.response.use(
       if (String(error).includes("timeout of 1000ms") === true) {
         return { status: 0, message: "The Server connection time out." };
       } else {
-        return { status: 0, message: `${e}` };
+        return { status: 0, message: "The Server connection fail." };
       }
     }
     return Promise.reject(error);

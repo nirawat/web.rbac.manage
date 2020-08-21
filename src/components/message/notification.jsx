@@ -21,10 +21,21 @@ const useStyles = makeStyles((theme) => ({
 
 const Notification = (props) => {
   const classes = useStyles();
+  const [anchor] = React.useState({
+    vertical: "top",
+    horizontal: "center",
+  });
+  const { vertical, horizontal } = anchor;
 
   let alert = (
     <div className={classes.root}>
-      <Snackbar open={true} autoHideDuration={6000} onClose={props.onClose}>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        key={"topCenter"}
+        open={true}
+        autoHideDuration={6000}
+        onClose={props.onClose}
+      >
         <Alert onClose={props.onClose} severity={props.isFlag}>
           {props.isFlag.toUpperCase()} <br />
           {props.isMessage} <br />

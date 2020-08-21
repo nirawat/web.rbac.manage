@@ -116,7 +116,7 @@ function LayoutPages({ routes }) {
       <LayoutAppBar />
       <LayoutMenu />
       <main className={classes.layout}>
-        <Grid container spacing={1}>
+        <Grid container spacing={0}>
           <Grid item xs={6}>
             <Typography
               gutterBottom

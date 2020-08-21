@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 const Notification = (props) => {
   const classes = useStyles();
   const [anchor] = React.useState({
-    vertical: "top",
+    vertical: "bottom",
     horizontal: "center",
   });
   const { vertical, horizontal } = anchor;

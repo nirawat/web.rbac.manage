@@ -1,5 +1,5 @@
 import {
-  TYPE_USER,
+  TYPE_POSITION,
   HANDLE_MODE,
   NEW,
   REQUEST,
@@ -12,24 +12,15 @@ const initialState = {
   isMode: NEW,
   data: [],
   model: {
-    account_id: "",
-    email: "",
-    password: "",
-    prefixes: "",
-    first_name: "",
-    last_name: "",
-    language: "EN",
-    section_code: "",
-    section_name: "",
-    position_code: 0,
-    position_name: "",
-    activate_date: new Date(Date.now()),
+    code: "",
+    name_thai: "",
+    name_eng: "",
   },
 };
 
-export const reducerUser = (state = initialState, action) => {
+export const reducerPosition = (state = initialState, action) => {
   const { type, handle, payload } = action;
-  if (type === TYPE_USER) {
+  if (type === TYPE_POSITION) {
     switch (handle) {
       case HANDLE_MODE:
         return {
@@ -43,17 +34,16 @@ export const reducerUser = (state = initialState, action) => {
           data: payload,
         };
       case INSERT:
-        payload.data.account_id = payload.account_id;
         return {
           ...state,
-          data: [...state.data, payload.data],
+          data: [...state.data, payload],
         };
       case UPDATE:
         return {
           ...state,
           data: [
             ...state.data.map((e) => {
-              if (e.account_id !== payload.account_id) {
+              if (e.code !== payload.code) {
                 return e;
               }
               return payload;
@@ -63,9 +53,7 @@ export const reducerUser = (state = initialState, action) => {
       case DELETE:
         return {
           ...state,
-          data: [
-            ...state.data.filter((e) => e.account_id !== payload.account_id),
-          ],
+          data: [...state.data.filter((e) => e.code !== payload.code)],
         };
       default:
         return state;

@@ -28,6 +28,10 @@ import {
   THEME_COLOR_PURPLE,
   THEME_COLOR_DEEP_PURPLE,
   THEME_COLOR_BLACK_GRAY,
+  THEME_COLOR_CYAN,
+  THEME_COLOR_TEAL,
+  THEME_COLOR_LIGHT_GREEN,
+  THEME_COLOR_PINK,
   THEME_COLOR_GRAY,
 } from "../../../redux/reducers/global.action.type";
 
@@ -248,6 +252,10 @@ const ManageUserGroup = (props) => {
               <ThemeColors defaultThemeColor={THEME_COLOR_RED} />
               <ThemeColors defaultThemeColor={THEME_COLOR_ORANG} />
               <ThemeColors defaultThemeColor={THEME_COLOR_AMBER} />
+              <ThemeColors defaultThemeColor={THEME_COLOR_CYAN} />
+              <ThemeColors defaultThemeColor={THEME_COLOR_TEAL} />
+              <ThemeColors defaultThemeColor={THEME_COLOR_LIGHT_GREEN} />
+              <ThemeColors defaultThemeColor={THEME_COLOR_PINK} />
               <ThemeColors defaultThemeColor={THEME_COLOR_GRAY} />
             </Grid>
           </Grid>

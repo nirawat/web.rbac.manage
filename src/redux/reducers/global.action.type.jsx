@@ -15,6 +15,10 @@ export const THEME_COLOR_PURPLE = "#9c27b0";
 export const THEME_COLOR_DEEP_PURPLE = "#673ab7";
 export const THEME_COLOR_BLACK_GRAY = "#212121";
 export const THEME_COLOR_GRAY = "#9e9e9e";
+export const THEME_COLOR_CYAN = "#00bcd4";
+export const THEME_COLOR_TEAL = "#009688";
+export const THEME_COLOR_LIGHT_GREEN = "#8bc34a";
+export const THEME_COLOR_PINK = "#e91e63";
 
 //GLOBAL MENU REDUCER
 export const OPEN_AND_CLOSE_MENU = "OPEN_AND_CLOSE_MENU";
@@ -47,13 +51,16 @@ export const MANAGE_PERMISSION_FUNC = "MANAGE_PERMISSION_FUNC";
 export const MANAGE_REGISTER = "MANAGE_REGISTER";
 export const ACTIVE_REGISTER_MODE = "ACTIVE_REGISTER_MODE";
 export const MANAGE_SECTION = "MANAGE_SECTION";
+export const MANAGE_POSITION = "MANAGE_POSITION";
 export const MANAGE_ROLE = "MANAGE_ROLE";
+export const MANAGE_ITEM_SKU = "MANAGE_ITEM_SKU";
 export const DASHBOARD_WIDGET_1 = "UsageStatusLogs";
 export const DASHBOARD_WIDGET_2 = "";
 export const DASHBOARD_WIDGET_3 = "";
 export const DASHBOARD_WIDGET_4 = "StatisticRequestTokenLogs";
 export const DASHBOARD_WIDGET_5 = "StatisticUsageLogs";
 export const DASHBOARD_WIDGET_6 = "UsageOfCountry";
+export const MANAGE_CATEGORY = "MANAGE_CATEGORY";
 
 export const NEW = "NEW";
 export const EDIT = "EDIT";
@@ -74,7 +81,18 @@ export const TYPE_PERMISSION_ROLE = "TYPE_PERMISSION_ROLE";
 export const TYPE_PERMISSION_FUNC = "TYPE_PERMISSION_FUNC";
 export const TYPE_REGISTER = "Registered";
 export const TYPE_SECTION = "Section";
+export const TYPE_POSITION = "Position";
 export const TYPE_ROLE = "Role";
 export const TYPE_DASHBOARD = "Dashboard";
+
+export const TYPE_MASTER_WAREHOUSE = "Warehouse";
+export const TYPE_MASTER_LOCATION = "Location";
+export const TYPE_MASTER_CATEGORY = "Category";
+export const TYPE_MASTER_GROUP = "Group";
+export const TYPE_MASTER_UNIT = "Unit";
+export const TYPE_MASTER_ITEM = "Item";
+export const TYPE_MASTER_ITEM_SKU = "ItemSku";
+export const TYPE_MASTER_COLOR = "Color";
+export const TYPE_MASTER_SIZE = "Size";
 
 

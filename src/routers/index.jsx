@@ -9,7 +9,7 @@ import Page404 from "../components/response/page404";
 import Page504 from "../components/response/page504";
 import Page500 from "../components/response/page500";
 
-//Business Page
+//Role Base Access Control Page
 import Dashboard from "../components/pages/dashboard";
 import User from "../components/pages/user/index";
 import FunctionMenu from "../components/pages/functionMenu/index";
@@ -28,6 +28,15 @@ import ManagePermissionFunc from "../components/pages/permissionFunc/permission.
 import Register from "../components/pages/register/index";
 import ManageRegister from "../components/pages/register/register.manage";
 import ActiveRegister from "../components/pages/register/register.active";
+
+//Business Page
+import MasterCategory from "../components/pages/warehouseRM/masterCategory/index";
+import MasterGroup from "../components/pages/warehouseRM/masterGroup/index";
+import MasterUnit from "../components/pages/warehouseRM/masterUnit/index";
+import MasterWarehouse from "../components/pages/warehouseRM/masterWarehouse/index";
+import MasterLocation from "../components/pages/warehouseRM/masterLocation/index";
+import MasterItem from "../components/pages/warehouseRM/masterItem/index";
+import MasterItemSku from "../components/pages/warehouseRM/masterItemSku/index";
 
 const routes = [
   {
@@ -131,6 +140,34 @@ const routes = [
       {
         path: "/auth/MasterSection",
         component: MasterSection,
+      },
+      {
+        path: "/auth/MasterCategory",
+        component: MasterCategory,
+      },
+      {
+        path: "/auth/MasterGroup",
+        component: MasterGroup,
+      },
+      {
+        path: "/auth/MasterUnit",
+        component: MasterUnit,
+      },
+      {
+        path: "/auth/MasterWarehouse",
+        component: MasterWarehouse,
+      },
+      {
+        path: "/auth/MasterLocation",
+        component: MasterLocation,
+      },
+      {
+        path: "/auth/MasterItem",
+        component: MasterItem,
+      },
+      {
+        path: "/auth/MasterItemSku",
+        component: MasterItemSku,
       },
     ],
   },

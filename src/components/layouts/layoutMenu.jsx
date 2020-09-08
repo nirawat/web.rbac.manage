@@ -215,13 +215,13 @@ function LayoutMenu() {
                 </IconButton>
               </div>
             </Box>
-            <Box
+            {/* <Box
               style={{
-                height: 2,
+                height: 1,
                 backgroundColor: theme.palette.primary.main,
               }}
-            />
-            {/* <Divider /> */}
+            /> */}
+            <Divider />
             <List dense={false}>
               {funcAuth.map((item, index) => {
                 switch (item.divider) {

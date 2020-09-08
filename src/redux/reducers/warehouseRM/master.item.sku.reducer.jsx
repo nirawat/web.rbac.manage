@@ -1,5 +1,5 @@
 import {
-  TYPE_USER,
+  TYPE_MASTER_ITEM_SKU,
   HANDLE_MODE,
   NEW,
   REQUEST,
@@ -12,24 +12,33 @@ const initialState = {
   isMode: NEW,
   data: [],
   model: {
-    account_id: "",
-    email: "",
-    password: "",
-    prefixes: "",
-    first_name: "",
-    last_name: "",
-    language: "EN",
-    section_code: "",
-    section_name: "",
-    position_code: 0,
-    position_name: "",
-    activate_date: new Date(Date.now()),
+    id: "",
+    item_code: "",
+    item_color: "",
+    item_color_name: "",
+    item_size: "",
+    item_size_name: "",
+    item_sku: "",
+    basic_unit_code: "",
+    basic_unit_name: "",
+    basic_unit_qty: 0.0,
+    alternate_unit_code: "",
+    alternate_unit_name: "",
+    alternate_unit_qty: 0.0,
+    alternate_factor: "",
+    receive_unit_type: "",
+    issue_unit_type: "",
+    min_qty: 0.0,
+    alert_qty: 0.0,
+    max_qty: 0.0,
+    shelf_life: 0,
+    sku_barcode_enable: false,
   },
 };
 
-export const reducerUser = (state = initialState, action) => {
+export const reducerMasterItemSku = (state = initialState, action) => {
   const { type, handle, payload } = action;
-  if (type === TYPE_USER) {
+  if (type === TYPE_MASTER_ITEM_SKU) {
     switch (handle) {
       case HANDLE_MODE:
         return {
@@ -43,17 +52,16 @@ export const reducerUser = (state = initialState, action) => {
           data: payload,
         };
       case INSERT:
-        payload.data.account_id = payload.account_id;
         return {
           ...state,
-          data: [...state.data, payload.data],
+          data: [...state.data, payload],
         };
       case UPDATE:
         return {
           ...state,
           data: [
             ...state.data.map((e) => {
-              if (e.account_id !== payload.account_id) {
+              if (e.code !== payload.code) {
                 return e;
               }
               return payload;
@@ -63,9 +71,7 @@ export const reducerUser = (state = initialState, action) => {
       case DELETE:
         return {
           ...state,
-          data: [
-            ...state.data.filter((e) => e.account_id !== payload.account_id),
-          ],
+          data: [...state.data.filter((e) => e.code !== payload.code)],
         };
       default:
         return state;

@@ -35,6 +35,7 @@ import * as globalHandleService from "../../../services/global.handle.service";
 import {
   TYPE_USER,
   TYPE_SECTION,
+  TYPE_POSITION,
   NEW,
   EDIT,
   REMOVE,
@@ -91,10 +92,12 @@ const ManageUser = (props) => {
   const { isOpen, isMode, isData, handleCloseDialog } = props;
   const initialData = useSelector((state) => state.reducerUser.model);
   const sectionData = useSelector((state) => state.reducerSection.data);
+  const positionData = useSelector((state) => state.reducerPosition.data);
   const [masterData, setMasterData] = React.useState(initialData);
   const [isOpenConfirmDialog, setIsOpenConfirmDialog] = React.useState(false);
   const [selectLanguage, setSelectLanguage] = React.useState(false);
   const [selectSection, setSelectSection] = React.useState(false);
+  const [selectPosition, setSelectPosition] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleSelectLanguageClose = () => {
@@ -112,6 +115,13 @@ const ManageUser = (props) => {
     setSelectSection(true);
   };
 
+  const handleSelectPositionClose = () => {
+    setSelectPosition(false);
+  };
+  const handleSelectPositionOpen = () => {
+    setSelectPosition(true);
+  };
+
   const handleClickCloseEvent = () => {
     handleCloseDialog(masterData);
   };
@@ -121,6 +131,7 @@ const ManageUser = (props) => {
       setMasterData(isData);
       if (sectionData.length <= 0) {
         asyncSection();
+        asyncPosition();
       }
     },
     // eslint-disable-next-line
@@ -130,6 +141,12 @@ const ManageUser = (props) => {
   function asyncSection() {
     (async () => {
       await globalHandleService.GlobalRequest(dispatch, TYPE_SECTION);
+    })();
+  }
+
+  function asyncPosition() {
+    (async () => {
+      await globalHandleService.GlobalRequest(dispatch, TYPE_POSITION);
     })();
   }
 
@@ -386,6 +403,39 @@ const ManageUser = (props) => {
                     }}
                   >
                     {sectionData.map((item, index) => (
+                      <MenuItem
+                        key={index}
+                        value={item.code}
+                        name={item.name_thai}
+                      >
+                        {item.name_thai}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <FormControl className={classes.formControl}>
+                  <InputLabel id="select-position-open-select-label">
+                    {t("user_position")}
+                  </InputLabel>
+                  <Select
+                    labelId="select-position-open-select-label"
+                    id="select-position"
+                    open={selectPosition}
+                    onClose={handleSelectPositionClose}
+                    onOpen={handleSelectPositionOpen}
+                    value={masterData.position_code}
+                    disabled={isMode === REMOVE ? true : false}
+                    onChange={(e) => {
+                      setMasterData({
+                        ...masterData,
+                        position_code: e.target.value,
+                        position_name: e._targetInst.memoizedProps.name,
+                      });
+                    }}
+                  >
+                    {positionData.map((item, index) => (
                       <MenuItem
                         key={index}
                         value={item.code}

@@ -123,19 +123,6 @@ const LayoutProfile = (props) => {
       ...changePasswordDialog,
       isShow: true,
     });
-
-    // let info = {
-    //   account_id: profileInfo.account_id,
-    //   email: profileInfo.email,
-    //   current_password: "",
-    //   new_password: "",
-    //   confirm_password: "",
-    // };
-
-    // let resp = await ChangePasswordService(dispatch, info);
-    // if (resp.status === 200) {
-    //   history.push("/");
-    // }
   };
 
   const handleCloseChangePasswordDialog = () => {
@@ -153,7 +140,7 @@ const LayoutProfile = (props) => {
             <CardMedia className={classes.media}>
               <UserAvatar />
             </CardMedia>
-            <CardContent className={classes.content}>
+            <CardContent>
               <Typography variant="h6" component="h2" className={classes.info}>
                 {profileInfo != null ? profileInfo.fullName : ""}
               </Typography>
@@ -162,7 +149,7 @@ const LayoutProfile = (props) => {
                 display="block"
                 className={classes.info}
               >
-                {profileInfo != null ? profileInfo.companyName : ""}
+                {profileInfo != null ? profileInfo.sectionName : ""}
               </Typography>
               <Typography
                 variant="body2"
@@ -171,6 +158,13 @@ const LayoutProfile = (props) => {
                 className={classes.info}
               >
                 {profileInfo != null ? profileInfo.email : ""}
+              </Typography>
+              <Typography
+                variant="overline"
+                display="block"
+                className={classes.info}
+              >
+                {profileInfo != null ? profileInfo.companyName : ""}
               </Typography>
             </CardContent>
           </CardActionArea>

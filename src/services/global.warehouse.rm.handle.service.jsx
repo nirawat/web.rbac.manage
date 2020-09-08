@@ -14,8 +14,7 @@ import {
 
 export const GlobalRequest = async (dispatch, type) => {
   GlobalLoadingData(dispatch, true);
-  let resp = await httpClient.get(`Rbac/GetList${type}`);
-  console.log(type)
+  let resp = await httpClient.get(`WarehouseRM/GetList${type}`);
   if (resp.status === 200) {
     dispatch({ type: type, handle: REQUEST, payload: resp.data });
   }
@@ -25,7 +24,7 @@ export const GlobalRequest = async (dispatch, type) => {
 
 export const GlobalInsert = async (dispatch, type, data) => {
   GlobalLoadingEvent(dispatch, true);
-  let resp = await httpClient.post(`Rbac/Add${type}`, data);
+  let resp = await httpClient.post(`WarehouseRM/Add${type}`, data);
   if (resp.status === 200) {
     dispatch({
       type: type,
@@ -40,7 +39,7 @@ export const GlobalInsert = async (dispatch, type, data) => {
 
 export const GlobalUpdate = async (dispatch, type, data) => {
   GlobalLoadingEvent(dispatch, true);
-  let resp = await httpClient.post(`Rbac/Update${type}`, data);
+  let resp = await httpClient.post(`WarehouseRM/Update${type}`, data);
   if (resp.status === 200) {
     dispatch({ type: type, handle: UPDATE, payload: data });
   }
@@ -51,7 +50,7 @@ export const GlobalUpdate = async (dispatch, type, data) => {
 
 export const GlobalDelete = async (dispatch, type, data) => {
   GlobalLoadingEvent(dispatch, true);
-  let resp = await httpClient.post(`Rbac/Delete${type}`, data);
+  let resp = await httpClient.post(`WarehouseRM/Delete${type}`, data);
   if (resp.status === 200) {
     dispatch({ type: type, handle: DELETE, payload: data });
   }

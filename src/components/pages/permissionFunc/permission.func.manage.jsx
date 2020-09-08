@@ -141,6 +141,12 @@ const ManagePermissionFunc = () => {
     }
   };
 
+  const handleAddDivider = () => {
+    // setItemRight(itemRight.concat(leftChecked));
+    // setItemLeft(not(itemLeft, leftChecked));
+    // setChecked(not(checked, leftChecked));
+  };
+
   const handleCheckedRight = () => {
     setItemRight(itemRight.concat(leftChecked));
     setItemLeft(not(itemLeft, leftChecked));
@@ -236,6 +242,15 @@ const ManagePermissionFunc = () => {
         </Grid>
         <Grid item xs={2} sm={2}>
           <Grid container direction="column" alignItems="center">
+            <Button
+              variant="outlined"
+              size="small"
+              className={classes.buttonTransfer}
+              onClick={handleAddDivider}
+              aria-label="move selected divider"
+            >
+              {t("global_button_divider")}
+            </Button>
             <Button
               variant="outlined"
               size="small"

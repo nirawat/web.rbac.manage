@@ -1,5 +1,5 @@
 {
-  "name": "web-rbac-manage",
+  "name": "web-warehouse-manage",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,7 +31,7 @@
     "uniqid": "^5.2.0"
   },
   "scripts": {
-    "start": "SET REACT_APP_ENVIRONMENT=localhost&& react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-script test",
     "eject": "react-scripts eject"
